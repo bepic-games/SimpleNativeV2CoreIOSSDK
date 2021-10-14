@@ -1,9 +1,10 @@
+
 Pod::Spec.new do |spec|
   spec.name = "SimpleNativeV2CoreIOSSDK"
-  spec.version="0.1.0"
-  spec.summary= "Simple SDK for include base and entry sdk"
+  spec.version = "0.1.0"
+  spec.summary = "Simple SDKV2 core sdk"
   spec.description= <<-DESC
-  Simple SDK for include base and entry sdk
+  Simple SDKv2 for include base and entry sdk,other attr and userpayment and ad sdk is needed
   DESC
   spec.homepage= 'https://github.com/bepic-games/SimpleNativeV2CoreIOSSDK'
   spec.license= { :type => 'MIT', :file => 'LICENSE' }
