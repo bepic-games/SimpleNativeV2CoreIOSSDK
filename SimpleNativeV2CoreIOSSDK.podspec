@@ -1,4 +1,3 @@
-
 Pod::Spec.new do |spec|
   spec.name = "SimpleNativeV2CoreIOSSDK"
   spec.version="0.1.0"
@@ -10,7 +9,7 @@ Pod::Spec.new do |spec|
   spec.license= { :type => 'MIT', :file => 'LICENSE' }
   spec.author = { "yilang" => "yilang@bepic.cc" }
   spec.ios.deployment_target = "10.0"
-  spec.source = { :git => "https://github.com/bepic-games/SimpleNativeV2CoreIOSSDK.git", :tag => "#{spec.version="0.1.0"
+  spec.source = { :git => "https://github.com/bepic-games/SimpleNativeV2CoreIOSSDK.git", :tag => "#{spec.version}" }
   spec.source_files= 'SimpleNativeV2CoreIOSSDK/*.{framework}/Headers/*.h'
   spec.vendored_frameworks = 'SimpleNativeV2CoreIOSSDK/*.{framework}'
   spec.public_header_files = 'SimpleNativeV2CoreIOSSDK/*.{framework}/Headers/*.h'
