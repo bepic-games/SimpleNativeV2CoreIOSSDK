@@ -1,0 +1,6 @@
+framework module SimpleNativeIOSSDK {
+  umbrella header "SimpleNativeIOSSDK.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,6 @@
+framework module SimpleNativeBase {
+  umbrella header "SimpleNativeBase.h"
+
+  export *
+  module * { export * }
+}
