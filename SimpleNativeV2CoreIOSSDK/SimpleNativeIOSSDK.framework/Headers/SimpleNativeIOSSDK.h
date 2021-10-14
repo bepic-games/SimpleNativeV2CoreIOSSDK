@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import <SimpleNativeBase/SimpleNativeBase.h>
 NS_ASSUME_NONNULL_BEGIN
 
@@ -36,6 +37,11 @@ typedef void(^SimpleCallback)(bool isSuccess, NSString* msg);
     withPrice:(double)price
     withPriceString:(NSString *) priceString
     withCurrency:(NSString *) currency;
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options;
+
+- (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts;
+
 @end
 
 NS_ASSUME_NONNULL_END

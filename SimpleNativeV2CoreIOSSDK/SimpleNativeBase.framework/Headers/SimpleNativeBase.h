@@ -8,6 +8,7 @@
 #define SimpleNativeBase_h
 #import <Foundation/Foundation.h>
 #import "SimpleSDKUtils.h"
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -258,6 +259,10 @@ typedef void(^StartPaymentSuccess)(StartPaymentResult * result);
 - (void) setPurchaseItemsListener:(id<IPurchaseItemsListener>) listener;
 - (void) consumeItem:(long long) gameOrderId;
 - (void) printDatabase;
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options;
+- (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts;
+
 @end
 
 
