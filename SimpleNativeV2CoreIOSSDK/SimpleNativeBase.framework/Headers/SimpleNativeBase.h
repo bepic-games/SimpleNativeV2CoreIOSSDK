@@ -148,11 +148,9 @@ typedef void(^SimpleAdInitCallback)(void);
 
 #pragma mark - UserPayment
 
-typedef NS_ENUM(NSUInteger, LOGIN_TYPE) {
-    DEVICE,
-    FACEBOOK,
-    GAME_CENTER
-};
+extern NSString * const LOGIN_TYPE_DEVICE;
+extern NSString * const LOGIN_TYPE_FACEBOOK;
+extern NSString * const LOGIN_TYPE_GAME_CENTER;
 
 @interface State : NSObject
 @property (nonatomic) int code;
@@ -249,10 +247,10 @@ typedef void(^StartPaymentSuccess)(StartPaymentResult * result);
 - (void) logout;
 - (void) autoLoginAsync:(bool) needGameCenter success:(AutoLoginSuccess) success fail:(CallbackFail) fail;
 - (void) checkLoginAsync:(CheckLoginSuccess) success fail:(CallbackFail) fail;
-- (void) loginWithTypeAsync:(LOGIN_TYPE)loginType success:(LoginSuccess) success fail:(CallbackFail) fail;
+- (void) loginWithTypeAsync:(NSString *)loginType success:(LoginSuccess) success fail:(CallbackFail) fail;
 - (void) getUserInfoAsync:(UserInfoSuccess)success fail:(CallbackFail) fail;
-- (void) bindWithTypeAsync:(LOGIN_TYPE)loginType success:(UserInfoSuccess)success fail:(CallbackFail) fail;
-- (void) unbindWithTypeAsync:(LOGIN_TYPE)loginType success:(UserInfoSuccess)success fail:(CallbackFail) fail;
+- (void) bindWithTypeAsync:(NSString *)loginType success:(UserInfoSuccess)success fail:(CallbackFail) fail;
+- (void) unbindWithTypeAsync:(NSString *)loginType success:(UserInfoSuccess)success fail:(CallbackFail) fail;
 - (ShopItemResult *) getShopItems;
 - (void) getShopItemsAsync:(ShopItemsSuccess) success fail:(CallbackFail) fail;
 - (void) startPayment:(NSString *) itemId  cpOrderId:(NSString *) cpOrderId success:(StartPaymentSuccess)success fail:(CallbackFail) fail;
