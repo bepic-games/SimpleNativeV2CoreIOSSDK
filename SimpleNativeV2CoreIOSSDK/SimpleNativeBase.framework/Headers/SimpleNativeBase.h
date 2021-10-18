@@ -8,6 +8,7 @@
 #define SimpleNativeBase_h
 #import <Foundation/Foundation.h>
 #import "SimpleSDKUtils.h"
+#import "SimpleJsonMapper.h"
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
