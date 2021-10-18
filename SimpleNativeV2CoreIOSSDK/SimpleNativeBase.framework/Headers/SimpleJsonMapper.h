@@ -18,7 +18,7 @@
 
 + (NSDictionary *)objectToDict:(NSObject *)object;
 
-+ (id) dictToObject:(NSDictionary *)dictionary forClass:(Class)class;
++ (id) dictToObject:(NSDictionary *)dictionary forClass:(Class)classType;
 
 @end
 
