@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = "SimpleNativeV2CoreIOSSDK"
-  spec.version="0.1.7"
+  spec.version="0.1.8"
   spec.summary = "Simple SDKV2 core sdk"
   spec.description= <<-DESC
   Simple SDKv2 for include base and entry sdk,other attr and userpayment and ad sdk is needed
@@ -16,5 +16,4 @@ Pod::Spec.new do |spec|
   spec.pod_target_xcconfig = { 'VALID_ARCHS' => 'arm64 armv7 armv7s ' }
   spec.dependency 'AliyunLogProducer', '2.2.8'
   spec.dependency 'SAMKeychain', '1.5.3'
-  spec.dependency 'OCMapper', '2.1'
 end
