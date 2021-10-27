@@ -215,7 +215,7 @@ extern NSString * const LOGIN_TYPE_GAME_CENTER;
 
 @interface UnconsumeItem : NSObject
 @property (nonatomic) long long gameOrderId;
-@property (nonatomic,strong) NSString * item;
+@property (nonatomic,strong) NSString * itemId;
 @property (nonatomic) long long createTime;
 @property (nonatomic) long long purchaseTime;
 @property (nonatomic) int status;
