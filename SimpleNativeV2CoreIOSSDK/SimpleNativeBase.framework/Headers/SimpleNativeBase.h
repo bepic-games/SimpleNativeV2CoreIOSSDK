@@ -244,6 +244,7 @@ typedef void(^StartPaymentSuccess)(StartPaymentResult * result);
 @protocol SimpleSDKUPProtocol <NSObject>
 
 - (void) init:(StaticInfo *)staticInfo  withConfig:(SimpleSDKConfig *) config;
+- (bool) isLogin;
 - (long long) getGameAccountId;
 - (void) logout;
 - (void) autoLoginAsync:(bool) needGameCenter success:(AutoLoginSuccess) success fail:(CallbackFail) fail;
@@ -257,6 +258,7 @@ typedef void(^StartPaymentSuccess)(StartPaymentResult * result);
 - (void) startPayment:(NSString *) itemId  cpOrderId:(NSString *) cpOrderId success:(StartPaymentSuccess)success fail:(CallbackFail) fail;
 - (void) setPurchaseItemsListener:(id<IPurchaseItemsListener>) listener;
 - (void) consumeItem:(long long) gameOrderId;
+- (void) startPaymentForSimpleGame:(NSString *) itemId success:(StartPaymentSuccess)success fail:(CallbackFail) fail;
 - (void) printDatabase;
 
 - (BOOL) application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options;
