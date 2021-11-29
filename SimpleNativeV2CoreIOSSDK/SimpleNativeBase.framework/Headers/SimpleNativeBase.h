@@ -225,9 +225,19 @@ extern NSString * const LOGIN_TYPE_GAME_CENTER;
 @property (nonatomic,strong) NSMutableArray<UnconsumeItem *> * unconsumeItems;
 @end
 
+@interface SubscriptionItem : NSObject
+@property (nonatomic,strong) NSString * itemId;
+@property (nonatomic,strong) NSString * productId;
+@end
+
+@interface SubscriptionData : NSObject
+@property (nonatomic,strong) NSMutableArray<SubscriptionItem *> * subscriptionItems;
+@end
+
 @protocol IPurchaseItemsListener <NSObject>
 
 - (void) getPurchaseItems:(PurchaseItems *) purchaseItems;
+- (void) getSubscriptionItems:(SubscriptionData *) subscriptionData;
 
 @end
 
@@ -240,6 +250,7 @@ typedef void(^LoginSuccess)(LoginResult * result);
 typedef void(^UserInfoSuccess)(UserInfoResult * result);
 typedef void(^ShopItemsSuccess)(ShopItemResult * result);
 typedef void(^StartPaymentSuccess)(StartPaymentResult * result);
+typedef void(^QuerySubscriptionSuccess)(SubscriptionData * result);
 
 @protocol SimpleSDKUPProtocol <NSObject>
 
@@ -260,6 +271,8 @@ typedef void(^StartPaymentSuccess)(StartPaymentResult * result);
 - (void) consumeItem:(long long) gameOrderId;
 - (void) startPaymentForSimpleGame:(NSString *) itemId success:(StartPaymentSuccess)success fail:(CallbackFail) fail;
 - (void) printDatabase;
+- (void) querySubscriptionAsync:(QuerySubscriptionSuccess) success fail:(CallbackFail) fail;
+- (void) restoreApplePurchases;
 
 - (BOOL) application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options;
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(nullable NSString *)sourceApplication annotation:(id)annotation;
