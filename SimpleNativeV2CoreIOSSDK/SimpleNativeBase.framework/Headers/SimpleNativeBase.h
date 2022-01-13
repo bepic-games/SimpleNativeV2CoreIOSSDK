@@ -226,8 +226,17 @@ extern NSString * const LOGIN_TYPE_GAME_CENTER;
 @end
 
 @interface SubscriptionItem : NSObject
+@property (nonatomic,strong) NSString * originalTransactionId;
 @property (nonatomic,strong) NSString * itemId;
 @property (nonatomic,strong) NSString * productId;
+@property (nonatomic) bool isSubscribed;
+@property (nonatomic) long long purchaseTime;
+@property (nonatomic) long long expiredTime;
+@property (nonatomic) long long leftTime;
+@property (nonatomic) bool isInFree;
+@property (nonatomic) bool isInIntroductory;
+@property (nonatomic) bool isCancel;
+
 @end
 
 @interface SubscriptionData : NSObject
