@@ -33,6 +33,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong) NSString * deviceName;
 @property (nonatomic,strong) NSString * systemVersion;
 @property (nonatomic,strong) NSString * network;
+@property (nonatomic) int isVpn;
+@property (nonatomic) int isProxy;
 
 - (instancetype)initWithGameName:(NSString*)gameName;
 

@@ -52,6 +52,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSString *)getDeviceVersionWithRaw;
 
++ (NSString *)getNetworkStatus;
+
++ (int)isVpn;
+
++ (int)isProxy;
+
+
 #pragma - mark json
 
 + (nullable NSData *)readJSONFileName:(NSString *)fileName subPath:(nullable NSString *)subPath;
