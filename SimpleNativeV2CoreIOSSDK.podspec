@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = "SimpleNativeV2CoreIOSSDK"
-  spec.version="0.2.7"
+  spec.version="0.2.8"
   spec.summary = "Simple SDKV2 core sdk"
   spec.description= <<-DESC
   Simple SDKv2 for include base and entry sdk,other attr and userpayment and ad sdk is needed

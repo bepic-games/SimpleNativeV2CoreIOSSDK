@@ -317,6 +317,13 @@ typedef void(^QuerySubscriptionSuccess)(SubscriptionData * result);
 
 @end
 
+#pragma mark - Push
+@protocol SimpleSDKPushProtocol <NSObject>
+- (void) initPush;
+@end
+
+
+
 NS_ASSUME_NONNULL_END
 
 //! Project version number for SimpleNativeBase.
