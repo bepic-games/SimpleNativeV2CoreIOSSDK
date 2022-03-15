@@ -204,6 +204,7 @@ extern NSString * const LOGIN_TYPE_GAME_CENTER;
 @property (nonatomic) long long price;
 @property (nonatomic,strong) NSString * currency;
 @property (nonatomic,strong) NSString * formattedPrice;
+@property (nonatomic) double doublePrice;
 @property (nonatomic,strong) NSDictionary * methodItemMap;
 @end
 
@@ -292,15 +293,11 @@ typedef void(^QueryOneTimeItemSuccess)(OneTimeItemList * result);
 - (void) startPayment:(NSString *) itemId  cpOrderId:(NSString *) cpOrderId success:(StartPaymentSuccess)success fail:(CallbackFail) fail;
 - (void) setPurchaseItemsListener:(id<IPurchaseItemsListener>) listener;
 - (void) consumeItem:(long long) gameOrderId;
-- (void) startPaymentForSimpleGame:(NSString *) itemId success:(StartPaymentSuccess)success fail:(CallbackFail) fail;
+//- (void) startPaymentForSimpleGame:(NSString *) itemId success:(StartPaymentSuccess)success fail:(CallbackFail) fail;
 - (void) printDatabase;
 - (void) querySubscriptionAsync:(QuerySubscriptionSuccess) success fail:(CallbackFail) fail;
 - (void) queryOneTimeItemAsync:(QueryOneTimeItemSuccess) success fail:(CallbackFail) fail;
 - (void) restoreApplePurchases;
-
-- (BOOL) application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options;
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(nullable NSString *)sourceApplication annotation:(id)annotation;
-- (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts;
 
 @end
 
@@ -330,12 +327,47 @@ typedef void(^QueryOneTimeItemSuccess)(OneTimeItemList * result);
 
 @end
 
-#pragma mark - Push
-@protocol SimpleSDKPushProtocol <NSObject>
-- (void) initPush;
+
+#pragma mark - applistene
+@protocol SimpleSDKAppDelegateProtocol <NSObject>
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options;
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(nullable NSString *)sourceApplication annotation:(id)annotation ;
+- (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts;
+@end
+
+@interface SimpleSDKAppDelegateProtocolService:NSObject
+
+@property id<SimpleSDKAppDelegateProtocol> appDelegateProtcol;
+
++ (instancetype)sharedInstance;
+
 @end
 
 
+#pragma mark - ThirdUploadLogger
+
+@protocol ThirdUploadLoggerProtocol <NSObject>
+
+- (void) level:(int)level;
+- (void) addToCart:(double)price currency:(NSString*) currency contentId:(NSString*)  contentId;
+- (void) initCheckout:(double)price currency:(NSString*) currency contentId:(NSString*)  contentId;
+- (void) purchase:(double)price currency:(NSString*) currency contentId:(NSString*)  contentId;
+- (void) subscription:(double)price currency:(NSString*) currency orderId:(NSString*)  orderId;
+@end
+
+@interface ThirdUploadLoggerService:NSObject
+
+@property NSMutableArray<ThirdUploadLoggerProtocol> * loggers;
+
++ (instancetype)sharedInstance;
+
+- (void) level:(int)level;
+- (void) addToCart:(double)price currency:(NSString*) currency contentId:(NSString*)  contentId;
+- (void) initCheckout:(double)price currency:(NSString*) currency contentId:(NSString*)  contentId;
+- (void) purchase:(double)price currency:(NSString*) currency contentId:(NSString*)  contentId;
+- (void) subscription:(double)price currency:(NSString*) currency orderId:(NSString*)  orderId;
+
+@end
 
 NS_ASSUME_NONNULL_END
 
