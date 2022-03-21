@@ -281,6 +281,7 @@ typedef void(^QueryOneTimeItemSuccess)(OneTimeItemList * result);
 - (void) init:(StaticInfo *)staticInfo  withConfig:(SimpleSDKConfig *) config;
 - (bool) isLogin;
 - (long long) getGameAccountId;
+- (NSString *) getSessionToken;
 - (void) logout;
 - (void) autoLoginAsync:(bool) needGameCenter success:(AutoLoginSuccess) success fail:(CallbackFail) fail;
 - (void) checkLoginAsync:(CheckLoginSuccess) success fail:(CallbackFail) fail;
