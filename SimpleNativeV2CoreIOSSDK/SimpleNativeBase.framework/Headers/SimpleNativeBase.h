@@ -56,6 +56,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) bool chn;
 @property (nonatomic) bool debug;
 @property (nonatomic,strong) NSString * adjustKey;
+@property (nonatomic,strong) NSString * iosAdjustAddToCart;
+@property (nonatomic,strong) NSString * iosAdjustInitCheckout;
+@property (nonatomic,strong) NSString * iosAdjustPurchase;
+@property (nonatomic,strong) NSString * iosAdjustSubscription;
 @property (nonatomic,strong) NSString * appsflyerKey;
 
 @property (nonatomic,strong) NSString * appleId;
