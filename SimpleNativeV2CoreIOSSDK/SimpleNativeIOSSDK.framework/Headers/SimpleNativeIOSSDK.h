@@ -11,8 +11,6 @@
 NS_ASSUME_NONNULL_BEGIN
 
 
-typedef void(^SimpleCallback)(bool isSuccess, NSString* msg);
-
 @interface SimpleNativeIOSSDK<AppsFlyerLibDelegate> : NSObject
 
 + (instancetype)sharedInstance;

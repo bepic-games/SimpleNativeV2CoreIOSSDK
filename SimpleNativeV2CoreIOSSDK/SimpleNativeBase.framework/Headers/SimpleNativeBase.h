@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - Base
 
+typedef void(^SimpleCallback)(bool isSuccess, NSString* msg);
+
 @interface StaticInfo : NSObject
 
 @property (nonatomic,strong) NSString * gameName;
@@ -130,8 +132,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-typedef void(^SimpleAdInitCallback)(void);
-
 @protocol SimpleSDKAdProtocol <NSObject>
 
 @property (weak, nonatomic) id<SimpleSDKRewardedVideoListener> simpleSDKRewardedVideoListener;
@@ -140,7 +140,7 @@ typedef void(^SimpleAdInitCallback)(void);
 
 - (NSString *) getMediationType;
 - (NSString *) getMediationVersion;
-- (void) initWithConfig:(SimpleSDKConfig *)simpleConfig callback:SimpleAdInitCallback;
+- (void) initWithConfig:(SimpleSDKConfig *)simpleConfig callback:(SimpleCallback) cb;
 - (bool) hasReward;
 - (void) showReward:(NSString *) adEntry;
 - (bool) hasInterstitial;
@@ -282,7 +282,7 @@ typedef void(^QueryOneTimeItemSuccess)(OneTimeItemList * result);
 
 @protocol SimpleSDKUPProtocol <NSObject>
 
-- (void) init:(StaticInfo *)staticInfo  withConfig:(SimpleSDKConfig *) config;
+- (void) init:(StaticInfo *)staticInfo  withConfig:(SimpleSDKConfig *) config callback:(SimpleCallback) cb;
 - (bool) isLogin;
 - (long long) getGameAccountId;
 - (NSString *) getSessionToken;
