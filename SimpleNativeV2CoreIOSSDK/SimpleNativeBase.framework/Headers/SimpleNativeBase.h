@@ -296,6 +296,7 @@ typedef void(^QueryOneTimeItemSuccess)(OneTimeItemList * result);
 - (ShopItemResult *) getShopItems;
 - (void) getShopItemsAsync:(ShopItemsSuccess) success fail:(CallbackFail) fail;
 - (void) startPayment:(NSString *) itemId  cpOrderId:(NSString *) cpOrderId success:(StartPaymentSuccess)success fail:(CallbackFail) fail;
+- (void) startPaymentWithEnvId:(NSString *) itemId  cpOrderId:(NSString *) cpOrderId envId:(NSString *)envId success:(StartPaymentSuccess)success fail:(CallbackFail) fail;
 - (void) setPurchaseItemsListener:(id<IPurchaseItemsListener>) listener;
 - (void) consumeItem:(long long) gameOrderId;
 //- (void) startPaymentForSimpleGame:(NSString *) itemId success:(StartPaymentSuccess)success fail:(CallbackFail) fail;
