@@ -209,6 +209,7 @@ extern NSString * const LOGIN_TYPE_GAME_CENTER;
 @property (nonatomic,strong) NSString * currency;
 @property (nonatomic,strong) NSString * formattedPrice;
 @property (nonatomic) double doublePrice;
+@property (nonatomic) double usdPrice;
 @property (nonatomic,strong) NSDictionary * methodItemMap;
 @end
 
