@@ -98,7 +98,7 @@ typedef void(^SimpleCallback)(bool isSuccess, NSString* msg);
 #pragma mark - Ad
 
 @interface SimpleAdCallbackInfo:NSObject
-
+@property (nonatomic) double revenue;
 @property (nonatomic,strong) NSString * network;
 @property (nonatomic,strong) NSString * placementId;
 @property (nonatomic,strong) NSString * adsourceId;
