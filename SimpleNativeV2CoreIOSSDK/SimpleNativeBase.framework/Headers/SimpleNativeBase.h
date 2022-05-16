@@ -58,6 +58,9 @@ typedef void(^SimpleCallback)(bool isSuccess, NSString* msg);
 @property (nonatomic) bool chn;
 @property (nonatomic) bool debug;
 @property (nonatomic,strong) NSString * adjustKey;
+@property (nonatomic,strong) NSString * iosAdjustGameStart;
+@property (nonatomic,strong) NSString * iosAdjustRegister;
+@property (nonatomic,strong) NSString * iosAdjustLogin;
 @property (nonatomic,strong) NSString * iosAdjustAddToCart;
 @property (nonatomic,strong) NSString * iosAdjustInitCheckout;
 @property (nonatomic,strong) NSString * iosAdjustPurchase;
@@ -354,7 +357,9 @@ typedef void(^QueryOneTimeItemSuccess)(OneTimeItemList * result);
 #pragma mark - ThirdUploadLogger
 
 @protocol ThirdUploadLoggerProtocol <NSObject>
-
+- (void) gameStart;
+- (void) registerEvent;
+- (void) login;
 - (void) level:(int)level;
 - (void) addToCart:(double)price currency:(NSString*) currency contentId:(NSString*)  contentId;
 - (void) initCheckout:(double)price currency:(NSString*) currency contentId:(NSString*)  contentId;
@@ -368,6 +373,9 @@ typedef void(^QueryOneTimeItemSuccess)(OneTimeItemList * result);
 
 + (instancetype)sharedInstance;
 
+- (void) gameStart;
+- (void) registerEvent;
+- (void) login;
 - (void) level:(int)level;
 - (void) addToCart:(double)price currency:(NSString*) currency contentId:(NSString*)  contentId;
 - (void) initCheckout:(double)price currency:(NSString*) currency contentId:(NSString*)  contentId;
