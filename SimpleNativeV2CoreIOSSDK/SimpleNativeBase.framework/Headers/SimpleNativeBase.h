@@ -365,6 +365,8 @@ typedef void(^QueryOneTimeItemSuccess)(OneTimeItemList * result);
 - (void) initCheckout:(double)price currency:(NSString*) currency contentId:(NSString*)  contentId;
 - (void) purchase:(double)price currency:(NSString*) currency contentId:(NSString*)  contentId;
 - (void) subscription:(double)price currency:(NSString*) currency orderId:(NSString*)  orderId;
+- (void) adShow:(NSString *)adtype mediationPlatform:(NSString *)mediationPlatform networkName:(NSString *)networkName displayName:(NSString *)displayName adUnitId:(NSString *) adUnitId   revenue:(double) revenue;
+
 @end
 
 @interface ThirdUploadLoggerService:NSObject
@@ -381,7 +383,7 @@ typedef void(^QueryOneTimeItemSuccess)(OneTimeItemList * result);
 - (void) initCheckout:(double)price currency:(NSString*) currency contentId:(NSString*)  contentId;
 - (void) purchase:(double)price currency:(NSString*) currency contentId:(NSString*)  contentId;
 - (void) subscription:(double)price currency:(NSString*) currency orderId:(NSString*)  orderId;
-
+- (void) adShow:(NSString *)adtype mediationPlatform:(NSString *)mediationPlatform networkName:(NSString *)networkName displayName:(NSString *)displayName adUnitId:(NSString *) adUnitId   revenue:(double) revenue;
 @end
 
 NS_ASSUME_NONNULL_END
