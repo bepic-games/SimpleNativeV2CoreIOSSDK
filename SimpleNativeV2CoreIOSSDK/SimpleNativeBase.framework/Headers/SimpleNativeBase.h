@@ -82,6 +82,8 @@ typedef void(^SimpleCallback)(bool isSuccess, NSString* msg);
 @property (nonatomic,strong) NSString * ryChannel;
 @property (nonatomic,strong) NSString * adtag;
 
+@property (nonatomic,strong) NSString * buglyId;
+
 - (instancetype)initWithDict:(NSDictionary*)dict;
 
 @end
@@ -354,11 +356,25 @@ typedef void(^QueryOneTimeItemSuccess)(OneTimeItemList * result);
 + (instancetype)sharedInstance;
 
 @end
+#pragma mark - ModuleInit
+@protocol ModuleInit <NSObject>
+- (void) initWithConfig:(SimpleSDKConfig *) simpleConfig withStaticInfo:(StaticInfo *) staticInfo;
+@end
 
+@interface ModuleInitFactory:NSObject
+
+@property NSMutableArray<ModuleInit> * modules;
+
++ (instancetype)sharedInstance;
+
+- (void) initWithConfig:(SimpleSDKConfig *) simpleConfig withStaticInfo:(StaticInfo *) staticInfo;
+
+@end
 
 #pragma mark - ThirdUploadLogger
 
 @protocol ThirdUploadLoggerProtocol <NSObject>
+- (void) initWithConfig:(SimpleSDKConfig *) simpleConfig withStaticInfo:(StaticInfo *) staticInfo;
 - (void) gameStart;
 - (void) registerEvent;
 - (void) login;
@@ -376,7 +392,7 @@ typedef void(^QueryOneTimeItemSuccess)(OneTimeItemList * result);
 @property NSMutableArray<ThirdUploadLoggerProtocol> * loggers;
 
 + (instancetype)sharedInstance;
-
+- (void) initWithConfig:(SimpleSDKConfig *) simpleConfig withStaticInfo:(StaticInfo *) staticInfo;
 - (void) gameStart;
 - (void) registerEvent;
 - (void) login;
