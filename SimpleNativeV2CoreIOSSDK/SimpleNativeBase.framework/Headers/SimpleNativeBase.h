@@ -404,6 +404,28 @@ typedef void(^QueryOneTimeItemSuccess)(OneTimeItemList * result);
 - (void) adShow:(NSString *)adtype mediationPlatform:(NSString *)mediationPlatform networkName:(NSString *)networkName displayName:(NSString *)displayName adUnitId:(NSString *) adUnitId   revenue:(double) revenue;
 @end
 
+#pragma mark - OnlineConfig
+@interface OnlineParamPair : NSObject
+@property (nonatomic,strong) NSString * key;
+@property (nonatomic,strong) NSString * value;
+@end
+
+@interface OnlineConfigResult : NSObject
+@property (nonatomic) bool isSuccess;
+@property (nonatomic,strong) NSArray<OnlineParamPair * > * values;
+@end
+
+typedef void(^GetOnlineConfig)(OnlineConfigResult * result);
+
+@interface OnlineConfig : NSObject
++ (instancetype)sharedInstance;
+- (void) fetchSuccess:(NSArray<OnlineParamPair * > *) data;
+- (void) fetchFail;
+- (void) getRemoteConfigAsync:(GetOnlineConfig) getOnlineConfig;
+- (NSArray<OnlineParamPair *> *) getRemoteConfigSync;
+@end
+
+
 NS_ASSUME_NONNULL_END
 
 //! Project version number for SimpleNativeBase.
